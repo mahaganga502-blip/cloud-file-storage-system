@@ -1,0 +1,87 @@
+# Cloud File Storage System
+files = []
+while True:
+    print("\n===== CLOUD FILE STORAGE SYSTEM =====")
+    print("1. Upload File")
+    print("2. View Files")
+    print("3. Delete File")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        filename = input("Enter file name: ")
+        size = input("Enter file size: ")
+        files.append([filename, size])
+        print("File uploaded successfully!")
+    elif choice == "2":
+        print("\n--- STORED FILES ---")
+        if len(files) == 0:
+            print("No files available.")
+        else:
+            for i, file in enumerate(files, 1):
+                print(i, ".", file[0], "-", file[1])
+    elif choice == "3":
+        if len(files) == 0:
+            print("No files available to delete.")
+        else:
+            print("\n--- STORED FILES ---")
+            for i, file in enumerate(files, 1):
+                print(i, ".", file[0], "-", file[1])
+            number = int(input("Enter file number to delete: "))
+            if 1 <= number <= len(files):
+                deleted_file = files.pop(number - 1)
+                print(deleted_file[0], "deleted successfully!")
+            else:
+                print("Invalid file number.")
+    elif choice == "4":
+        print("Thank you for using Cloud File Storage System!")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+OUTPUT:
+===== CLOUD FILE STORAGE SYSTEM =====
+1. Upload File
+2. View Files
+3. Delete File
+4. Exit
+Enter your choice: 1
+Enter file name: assignment.pdf
+Enter file size: 2 MB
+File uploaded successfully!
+===== CLOUD FILE STORAGE SYSTEM =====
+1. Upload File
+2. View Files
+3. Delete File
+4. Exit
+Enter your choice: 1
+Enter file name: project.docx
+Enter file size: 5 MB
+File uploaded successfully!
+===== CLOUD FILE STORAGE SYSTEM =====
+1. Upload File
+2. View Files
+3. Delete File
+4. Exit
+Enter your choice: 2
+--- STORED FILES ---
+1 . assignment.pdf - 2 MB
+2 . project.docx - 5 MB
+===== CLOUD FILE STORAGE SYSTEM =====
+1. Upload File
+2. View Files
+3. Delete File
+4. Exit
+Enter your choice: 3
+--- STORED FILES ---
+1 . assignment.pdf - 2 MB
+2 . project.docx - 5 MB
+Enter file number to delete: 1
+assignment.pdf deleted successfully!
+===== CLOUD FILE STORAGE SYSTEM =====
+1. Upload File
+2. View Files
+3. Delete File
+4. Exit
+Enter your choice: 4
+Thank you for using Cloud File Storage System!
